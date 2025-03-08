@@ -1,0 +1,4 @@
+First Nmap Scan:
+
+nmap -sS -sV -A -p- -oN nmap.txt IP
+
