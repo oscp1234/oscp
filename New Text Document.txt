@@ -1,0 +1,4 @@
+
+$source = "C:\Users\DELL\Videos\OSCP Journey\OSCP"
+$destination = "C:\Users\DELL\OneDrive\OSCP Backup"
+Copy-Item -Path $source -Destination $destination -Recurse -Force
