@@ -1,0 +1,1 @@
+frida -U -l ./config.js -l ./native-connect-hook.js -l ./native-tls-hook.js -l ./android/android-proxy-override.js -l ./android/android-system-certificate-injection.js -l ./android/android-certificate-unpinning.js -l ./android/android-certificate-unpinning-fallback.js -l ./rootbeer_bypass.js -f com.xyx
